@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import  { useContext } from "react";
 import "./Main.css";
 import { assets } from "../../assets/assets";
 import { Context } from "../../context/context";
@@ -14,10 +14,16 @@ const Main = () => {
     input,
   } = useContext(Context);
 
+
   const handleInputEnter = (e) => {
     if (e.key === "Enter") {
       onSent();
     }
+  };
+
+  const handleCardClick = (promptText) => {
+    setInput(promptText);
+    onSent();
   };
 
   return (
@@ -31,12 +37,12 @@ const Main = () => {
           <>
             <div className="greet">
               <p>
-                <span>Hello, Dev!</span>
+                <span>Hello, Mayur!</span>
               </p>
               <p>How can I help you today?</p>
             </div>
             <div className="cards">
-              <div className="card">
+              <div className="card" onClick={() => handleCardClick("Brainstorm presentation ideas about a topic")}>
                 <p>Brainstorm presentation ideas about a topic</p>
                 <img src={assets.compass_icon} alt="" />
               </div>
